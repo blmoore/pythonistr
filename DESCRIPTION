@@ -2,10 +2,12 @@ Package: pythonistr
 Type: Package
 Title: Python idioms for R
 Version: 0.0.1
-Author: Ben Moore <ben@blm.io>
-Maintainer: Brings some useful Python-inspired functions
+Authors@R: person("Ben", "Moore", email = "ben@blm.io",
+  role = c("aut", "cre"))
+Description: Brings some useful Python-inspired functions
   and aliases to R, making it slightly easier to move 
   back and forth between to two languages.
 License: MIT
 Encoding: UTF-8
 LazyData: true
+RoxygenNote: 6.0.1
