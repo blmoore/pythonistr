@@ -10,4 +10,8 @@ reference:
 - title: Python inspired functions
   contents:
   - s
+  - with.connection
+  - by_line
+
+
 

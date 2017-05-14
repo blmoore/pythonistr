@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Python-inspired aliases for R functions — aliases • pythonistr</title>
+<title>Pseudo context-manager for file connections — with.connection • pythonistr</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -68,44 +68,53 @@
       <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Python-inspired aliases for R functions</h1>
+    <h1>Pseudo context-manager for file connections</h1>
     </div>
 
     
-    <p>These are some aliases for R function which are
-more in line with Python equivalents.</p>
+    <p>A <code>with</code> method for file connection objects
+which closes the connection after evaluation. This is a
+system in Python.</p>
     
 
-    <pre class="usage"><span class='fu'>len</span>()
+    <pre class="usage"><span class='co'># S3 method for connection</span>
+<span class='fu'>with</span>(<span class='no'>connection</span>, <span class='no'>expr</span>)</pre>
+    
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>connection</th>
+      <td><p>a file connection created with <code><a href='http://www.rdocumentation.org/packages/base/topics/connections'>file</a></code></p></td>
+    </tr>
+    <tr>
+      <th>expr</th>
+      <td><p>expression to evaluate</p></td>
+    </tr>
+    </table>
+    
+    <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-<span class='fu'>reversed</span>(<span class='no'>x</span>)
-
-<span class='fu'>sorted</span>(<span class='no'>x</span>, <span class='kw'>decreasing</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='no'>...</span>)
-
-<span class='no'>True</span>
-
-<span class='no'>False</span></pre>
-        
-    <h2 class="hasAnchor" id="format"><a class="anchor" href="#format"></a>Format</h2>
-
-    <p>An object of class <code>logical</code> of length 1.</p>
+    <p><code><a href='http://www.rdocumentation.org/packages/base/topics/with'>with</a></code></p>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='co'># python abbreviates to len, R is lengthier</span>
-<span class='kw'>base</span><span class='kw'>::</span><span class='fu'>length</span>(<span class='fl'>1</span>:<span class='fl'>5</span>)</div><div class='output co'>#&gt; [1] 5</div><div class='input'><span class='fu'>len</span>(<span class='fl'>1</span>:<span class='fl'>5</span>)</div><div class='output co'>#&gt; [1] 5</div><div class='input'>
-<span class='co'># for rev the trend is reversed</span>
-<span class='kw'>base</span><span class='kw'>::</span><span class='fu'>rev</span>(<span class='fl'>5</span>:<span class='fl'>1</span>)</div><div class='output co'>#&gt; [1] 1 2 3 4 5</div><div class='input'><span class='fu'>reversed</span>(<span class='fl'>5</span>:<span class='fl'>1</span>)</div><div class='output co'>#&gt; [1] 1 2 3 4 5</div><div class='input'>
-<span class='co'># returns a sorted copy</span>
-<span class='kw'>base</span><span class='kw'>::</span><span class='fu'>sort</span>(<span class='fu'>sample</span>(<span class='fl'>1</span>:<span class='fl'>5</span>))</div><div class='output co'>#&gt; [1] 1 2 3 4 5</div><div class='input'><span class='fu'>sorted</span>(<span class='fu'>sample</span>(<span class='fl'>1</span>:<span class='fl'>5</span>))</div><div class='output co'>#&gt; [1] 1 2 3 4 5</div><div class='input'>
-<span class='co'># don't really use these...</span>
-<span class='fu'>identical</span>(<span class='no'>false</span>, <span class='fl'>FALSE</span>)</div><div class='output co'>#&gt; <span class='error'>Error in identical(false, FALSE): object 'false' not found</span></div><div class='input'><span class='fu'>isTRUE</span>(<span class='no'>true</span>)</div><div class='output co'>#&gt; <span class='error'>Error in isTRUE(true): object 'true' not found</span></div></pre>
+    <pre class="examples"><div class='input'><span class='fu'>not_run</span>({
+  <span class='no'>connection</span> <span class='kw'>&lt;-</span> <span class='fu'>file</span>(<span class='st'>"file.csv"</span>, <span class='st'>"r"</span>)
+
+  <span class='fu'>with</span>(<span class='no'>connection</span>, {
+    <span class='fu'>print</span>(<span class='no'>connection</span>)
+  })
+
+  <span class='fu'>isOpen</span>(<span class='no'>connection</span>)
+})</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
+      <li><a href="#arguments">Arguments</a></li>
       
-      <li><a href="#format">Format</a></li>
+      <li><a href="#see-also">See also</a></li>
       
       <li><a href="#examples">Examples</a></li>
     </ul>

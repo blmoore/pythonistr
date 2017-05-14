@@ -63,6 +63,34 @@
 <div id="usage" class="section level2">
 <h2 class="hasAnchor">
 <a href="#usage" class="anchor"></a>Usage</h2>
+<div id="python-functions" class="section level3">
+<h3 class="hasAnchor">
+<a href="#python-functions" class="anchor"></a>Python functions</h3>
+<p>Python has a great context management system that closes file connections when they fall out of scope:</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="cf">with</span> <span class="bu">open</span>(<span class="st">'file.csv'</span>, <span class="st">'r'</span>) <span class="im">as</span> f:
+  <span class="cf">for</span> line <span class="op">in</span> f:
+    <span class="bu">print</span>(line)</code></pre></div>
+<p>Pythonistr adds a <code>with</code> method to connections which mirrors this behaviour:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">file_conn &lt;-<span class="st"> </span><span class="kw">file</span>(<span class="st">"file.csv"</span>, <span class="st">"r"</span>)
+<span class="kw">with</span>(file_conn, {
+  while (<span class="kw">length</span>(line) !=<span class="st"> </span><span class="dv">0</span>) {
+    line &lt;-<span class="st"> </span><span class="kw">readLines</span>(file_conn, <span class="dt">n =</span> <span class="dv">1</span>)
+    <span class="kw">print</span>(line)
+  }
+})</code></pre></div>
+</div>
+<div id="aliases" class="section level3">
+<h3 class="hasAnchor">
+<a href="#aliases" class="anchor"></a>Aliases</h3>
+<p>If you regularly switch between R and Python you might be used to getting tripped up by <code>length</code> vs. <code>len</code> but this isn’t the only example.</p>
+<p>Let’s play Python or R:</p>
+<ul>
+<li>
+<code>rev</code> vs. <code>reversed</code>?</li>
+<li>
+<code>sort</code> or <code>sorted</code>?</li>
+</ul>
+</div>
 </div>
 </div>
 </div>
