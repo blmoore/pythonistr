@@ -9,7 +9,7 @@ test_that("with closes file connection when done", {
   expect_true(isOpen(file_con))
 
   expect_output(
-    pythonistr::with.connection(file_con, {
+    with(file_con, {
       print(file_con)
     })
   )

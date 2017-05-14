@@ -21,8 +21,8 @@
 #' sorted(sample(1:5))
 #'
 #' # don't really use these...
-#' identical(false, FALSE)
-#' isTRUE(true)
+#' identical(False, FALSE)
+#' isTRUE(True)
 
 #' @rdname aliases
 #' @export
