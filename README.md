@@ -4,7 +4,7 @@
 pythonistr
 ==========
 
-[![Travis-CI Build Status](https://travis-ci.org/blmoore/pythonistr.svg?branch=master)](https://travis-ci.org/blmoore/pythonistr) [![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/pythonistr)](https://cran.r-project.org/package=pythonistry)
+[![Travis-CI Build Status](https://travis-ci.org/blmoore/pythonistr.svg?branch=master)](https://travis-ci.org/blmoore/pythonistr) [![codecov](https://codecov.io/gh/blmoore/pythonistr/branch/master/graph/badge.svg)](https://codecov.io/gh/blmoore/pythonistr) [![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/pythonistr)](https://cran.r-project.org/package=pythonistry)
 
 pythonistr brings over a few ideas from the python language into R.
 
