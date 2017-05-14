@@ -100,13 +100,11 @@ l
 
 If you regularly switch between R and Python you might be used to 
 getting tripped up by `length` vs. `len` but this isn't the only
-example. 
-
-For example: which language prefers `reversed` over `rev`? Which 
+example. For example: which language prefers `reversed` over `rev`? Which 
 implements `sorted` as well as `sort`? 
 
-pyhtonistr includes a few shortcuts to lower the context 
+pythonistr includes a few shortcuts to lower the context 
 switching overhead, though it's probably a bad idea to rely 
-on these for normal R programming.
+on these in normal R programming.
 
 
