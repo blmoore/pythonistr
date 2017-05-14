@@ -2,7 +2,7 @@
 % Please edit documentation in R/pyfuns.R
 \name{s}
 \alias{s}
-\title{Separate a atring into words}
+\title{Separate a string into words}
 \usage{
 s(string)
 separate(string)
