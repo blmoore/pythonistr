@@ -29,7 +29,7 @@
 #' separate("split this string")
 #'
 #' @export
-s <- separate <- function(string) {
+s <- function(string) {
 
   if (!class(string) == "character" &
       length(string) == 1) {
@@ -40,6 +40,9 @@ s <- separate <- function(string) {
 
 }
 
+#' @aliases s
+#' @export
+separate <- s
 
 #' Pseudo context-manager for file connections
 #'
