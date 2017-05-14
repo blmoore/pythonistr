@@ -2,7 +2,8 @@
   output: github_document
 ---
 
-  <!-- README.md is generated from README.Rmd. Please edit that file -->
+<!-- rmarkdown v1 -->
+<!-- README.md is generated from README.Rmd. Please edit that file -->
 
   ```{r, echo = FALSE}
 knitr::opts_chunk$set(
@@ -14,9 +15,10 @@ knitr::opts_chunk$set(
 
 # pythonistr
 
-[![Travis-CI Build Status](https://travis-ci.org/blmoore/pythonistr.svg?branch=master)](https://travis-ci.org/blmoore/pythonistr)
+[![travis_status](https://travis-ci.org/blmoore/pythonistr.svg?branch=master)](https://travis-ci.org/blmoore/pythonistr)
 [![codecov](https://codecov.io/gh/blmoore/pythonistr/branch/master/graph/badge.svg)](https://codecov.io/gh/blmoore/pythonistr)
-[![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/pythonistr)](https://cran.r-project.org/package=pythonistry)
+[![docs_badge](https://img.shields.io/badge/docs-latest-blue.svg)](http://blm.io/pythonistr)
+[![CRAN_badge](http://www.r-pkg.org/badges/version/pythonistr)](https://cran.r-project.org/package=pythonistry)
 
 pythonistr brings over a few ideas from the python language into R.
 
