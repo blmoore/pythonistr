@@ -65,7 +65,7 @@ by_line <- function(connection, FUN, STOP,
 
     # test for custom stop condition
     stop_condition <- forceAndCall(1, STOP, line)
-    message("stop condition", stop_condition)
+    # message("stop condition", stop_condition)
     if (stop_condition) {
       loop <- FALSE
     }
@@ -91,12 +91,7 @@ by_line <- function(connection, FUN, STOP,
       }
     }
 
-    message("cmd output:", output)
+    # message("cmd output:", output)
   }
   output
 }
-
-
-file = file("tests/testthat/test_df.csv", "r")
-#with(file, by_line(file, function(line) strsplit(line, ",")))
-a <- with(file, by_line(file, as.character))

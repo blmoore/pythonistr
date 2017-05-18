@@ -44,5 +44,11 @@ test_that("with works with non-file connections", {
   expect_error(isOpen(text_conn), connection_error)
 })
 
+test_that("within checks for strings and substrings", {
 
+  expect_true("c" %within% "singlecstring")
+  expect_true("char" %within% "character")
+  expect_false(all("s" %within% letters[1:10]))
+
+})
 
