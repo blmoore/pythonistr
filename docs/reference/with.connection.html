@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Pseudo context-manager for file connections — with.connection • pythonistr</title>
+<title>Pseudo context-manager for connections — with.connection • pythonistr</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -68,13 +68,13 @@
       <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Pseudo context-manager for file connections</h1>
+    <h1>Pseudo context-manager for connections</h1>
     </div>
 
     
-    <p>A <code>with</code> method for file connection objects
-which closes the connection after evaluation. This is a
-system in Python.</p>
+    <p>A <code>with</code> method for connection objects
+which closes the connection after evaluation.
+This is modelled after the common python idiom.</p>
     
 
     <pre class="usage"><span class='co'># S3 method for connection</span>
@@ -85,7 +85,8 @@ system in Python.</p>
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>connection</th>
-      <td><p>a file connection created with <code><a href='http://www.rdocumentation.org/packages/base/topics/connections'>file</a></code></p></td>
+      <td><p>a connection, such as a file
+connection created with <code><a href='http://www.rdocumentation.org/packages/base/topics/connections'>file</a></code></p></td>
     </tr>
     <tr>
       <th>expr</th>

@@ -2,19 +2,20 @@
 % Please edit documentation in R/pyfuns.R
 \name{with.connection}
 \alias{with.connection}
-\title{Pseudo context-manager for file connections}
+\title{Pseudo context-manager for connections}
 \usage{
 \method{with}{connection}(connection, expr)
 }
 \arguments{
-\item{connection}{a file connection created with \code{\link[base]{file}}}
+\item{connection}{a connection, such as a file
+connection created with \code{\link[base]{file}}}
 
 \item{expr}{expression to evaluate}
 }
 \description{
-A \code{with} method for file connection objects
-which closes the connection after evaluation. This is a
-system in Python.
+A \code{with} method for connection objects
+which closes the connection after evaluation.
+This is modelled after the common python idiom.
 }
 \examples{
 \dontrun{

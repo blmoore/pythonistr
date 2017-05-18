@@ -43,3 +43,4 @@ True <- TRUE
 #' @rdname aliases
 #' @export
 False <- FALSE
+

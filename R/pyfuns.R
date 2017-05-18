@@ -44,13 +44,14 @@ s <- function(string) {
 #' @export
 separate <- s
 
-#' Pseudo context-manager for file connections
+#' Pseudo context-manager for connections
 #'
-#' A \code{with} method for file connection objects
-#' which closes the connection after evaluation. This is a
-#' system in Python.
+#' A \code{with} method for connection objects
+#' which closes the connection after evaluation.
+#' This is modelled after the common python idiom.
 #'
-#' @param connection a file connection created with \code{\link[base]{file}}
+#' @param connection a connection, such as a file
+#'   connection created with \code{\link[base]{file}}
 #' @param expr expression to evaluate
 #'
 #' @examples
@@ -83,4 +84,32 @@ with.connection <- function(connection, expr) {
   close(connection)
 
   invisible(NULL)
+}
+
+#' Check for character within string
+#'
+#' Simple wrapper that checks if a character
+#' or substring has an exact match in a string.
+#' Really just a wrapper around \code{grepl}.
+#'
+#' @param char a character or substring to look
+#'   for
+#' @param string a string in which to match the
+#'   character or substring
+#'
+#' @examples
+#'
+#' if ("w" %within% "hello, world!")
+#'   print("Found it!")
+#'
+#' "char" %within% "character string"
+#'
+#' @export
+`%within%` <- function(char, string, ...) {
+
+  if (!class(char) == "character" & class(string) == "character") {
+    stop("args must be characters")
+  }
+
+  grepl(char, string, ...)
 }

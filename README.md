@@ -34,8 +34,11 @@ Pythonistr adds a `with` method to connections which mirrors this behaviour:
 ``` r
 file_conn <- file("file.csv", "r")
 with(file_conn, {
-  while (length(line) != 0) {
+  while (TRUE) {
     line <- readLines(file_conn, n = 1)
+    if (length(line) == 0) {
+      break
+    }
     print(line)
   }
 })

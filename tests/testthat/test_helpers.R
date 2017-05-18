@@ -19,7 +19,6 @@ test_that("by_line applies functions line-by-line", {
   )
 
   expect_error(isOpen(file))
-
 })
 
 test_that("by_line handles functions like apply", {

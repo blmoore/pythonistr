@@ -4,7 +4,7 @@
 \alias{by_line}
 \title{Iterate over a connection by line}
 \usage{
-by_line(connection, FUN, STOP, safe = TRUE, ...)
+by_line(connection, FUN, STOP, safe = TRUE, max_lines = 0, ...)
 }
 \arguments{
 \item{connection}{an open connection, such as a

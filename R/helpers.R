@@ -36,7 +36,8 @@
 #' }
 #'
 #' @export
-by_line <- function(connection, FUN, STOP, safe = TRUE, ...) {
+by_line <- function(connection, FUN, STOP,
+  safe = TRUE, max_lines = 0, ...) {
 
   FUN <- match.fun(FUN)
 
@@ -56,7 +57,9 @@ by_line <- function(connection, FUN, STOP, safe = TRUE, ...) {
     stop("connection is not open")
   }
 
+  output <- NULL
   loop <- TRUE
+  loop_counter <- 0
   while (loop) {
     line <- readLines(connection, n = 1, skipNul = TRUE)
 
@@ -67,13 +70,33 @@ by_line <- function(connection, FUN, STOP, safe = TRUE, ...) {
       loop <- FALSE
     }
 
+    if (max_lines != 0 & loop_counter >= max_lines) {
+      break
+    }
+
     # help prevent infinite loops, exit on empty line
     if (safe & length(line) == 0) {
       break
     }
 
-    output <- forceAndCall(1, FUN, line, ...)
+    # first time setup output object, no way to
+    # pre-allocate if going line-by-line
+    if (is.null(output)) {
+      output <<- forceAndCall(1, FUN, line, ...)
+    } else {
+      if (length(output) > 1) {
+        output <<- dplyr::combine(output, forceAndCall(1, FUN, line, ...))
+      } else {
+        output <<- c(output, forceAndCall(1, FUN, line, ...))
+      }
+    }
+
     message("cmd output:", output)
-    output
   }
+  output
 }
+
+
+file = file("tests/testthat/test_df.csv", "r")
+#with(file, by_line(file, function(line) strsplit(line, ",")))
+a <- with(file, by_line(file, as.character))

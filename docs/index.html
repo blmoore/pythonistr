@@ -48,11 +48,11 @@
     
     
 <div class="contents">
-<p><!-- README.md is generated from README.Rmd. Please edit that file --></p>
+<!-- README.md is generated from README.Rmd. Please edit that file -->
 <div id="pythonistr" class="section level1">
 <div class="page-header"><h1 class="hasAnchor">
 <a href="#pythonistr" class="anchor"></a>pythonistr</h1></div>
-<p><a href="https://travis-ci.org/blmoore/pythonistr"><img src="https://travis-ci.org/blmoore/pythonistr.svg?branch=master" alt="Travis-CI Build Status"></a> <a href="https://cran.r-project.org/package=pythonistry"><img src="http://www.r-pkg.org/badges/version/pythonistr" alt="CRAN_Status_Badge"></a></p>
+
 <p>pythonistr brings over a few ideas from the python language into R.</p>
 <div id="install" class="section level2">
 <h2 class="hasAnchor">
@@ -73,8 +73,11 @@
 <p>Pythonistr adds a <code>with</code> method to connections which mirrors this behaviour:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">file_conn &lt;-<span class="st"> </span><span class="kw">file</span>(<span class="st">"file.csv"</span>, <span class="st">"r"</span>)
 <span class="kw">with</span>(file_conn, {
-  while (<span class="kw">length</span>(line) !=<span class="st"> </span><span class="dv">0</span>) {
+  while (<span class="ot">TRUE</span>) {
     line &lt;-<span class="st"> </span><span class="kw">readLines</span>(file_conn, <span class="dt">n =</span> <span class="dv">1</span>)
+    if (<span class="kw">length</span>(line) ==<span class="st"> </span><span class="dv">0</span>) {
+      break
+    }
     <span class="kw">print</span>(line)
   }
 })
@@ -122,6 +125,13 @@ l
 <h2>Developers</h2>
 <ul class="list-unstyled">
 <li>Ben Moore <br><small class="roles"> Author, maintainer </small> </li>
+</ul>
+<h2>Dev status</h2>
+<ul class="list-unstyled">
+<li><a href="https://travis-ci.org/blmoore/pythonistr"><img src="https://travis-ci.org/blmoore/pythonistr.svg?branch=master" alt="travis_status"></a></li>
+<li><a href="https://codecov.io/gh/blmoore/pythonistr"><img src="https://codecov.io/gh/blmoore/pythonistr/branch/master/graph/badge.svg" alt="codecov"></a></li>
+<li><a href="http://blm.io/pythonistr"><img src="https://img.shields.io/badge/docs-latest-blue.svg" alt="docs_badge"></a></li>
+<li><a href="https://cran.r-project.org/package=pythonistry"><img src="http://www.r-pkg.org/badges/version/pythonistr" alt="CRAN_badge"></a></li>
 </ul>
 </div>
 

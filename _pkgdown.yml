@@ -12,6 +12,7 @@ reference:
   - s
   - with.connection
   - by_line
+  - starts_with('%')
 
 
 

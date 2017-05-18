@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Iterate over a connection by line — by_line • pythonistr</title>
+<title>Check for character within string — %within% • pythonistr</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -68,65 +68,39 @@
       <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Iterate over a connection by line</h1>
+    <h1>Check for character within string</h1>
     </div>
 
     
-    <p>Apply a function line-by-line to a connection,
-such as an open file connection. This allows
-simple processing without loading the entire
-file to memory, something like the common
-<code>for line in file: ...</code> approach in python.</p>
+    <p>Simple wrapper that checks if a character
+or substring has an exact match in a string.
+Really just a wrapper around <code>grepl</code>.</p>
     
 
-    <pre class="usage"><span class='fu'>by_line</span>(<span class='no'>connection</span>, <span class='no'>FUN</span>, <span class='no'>STOP</span>, <span class='kw'>safe</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>max_lines</span> <span class='kw'>=</span> <span class='fl'>0</span>, <span class='no'>...</span>)</pre>
+    <pre class="usage"><span class='no'>char</span> <span class='kw'>%within%</span> <span class='no'>string</span></pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>connection</th>
-      <td><p>an open connection, such as a
-text connection as created by <code><a href='http://www.rdocumentation.org/packages/base/topics/connections'>file</a></code></p></td>
+      <th>char</th>
+      <td><p>a character or substring to look
+for</p></td>
     </tr>
     <tr>
-      <th>FUN</th>
-      <td><p>a function to apply to each line
-that can be read from the connection</p></td>
-    </tr>
-    <tr>
-      <th>STOP</th>
-      <td><p>a function to generate a stop condition
-for reading lines of the connection</p></td>
-    </tr>
-    <tr>
-      <th>safe</th>
-      <td><p>auto-stop iteraction on reaching an
-empty line in the connection (attempts to prevent
-infinite loops)</p></td>
-    </tr>
-    <tr>
-      <th>...</th>
-      <td><p>extra arguments passed to <code>FUN</code></p></td>
+      <th>string</th>
+      <td><p>a string in which to match the
+character or substring</p></td>
     </tr>
     </table>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>not_run</span>({
-  <span class='no'>file</span> <span class='kw'>&lt;-</span> <span class='fu'>file</span>(<span class='st'>"myfile.txt"</span>, <span class='st'>"r"</span>)
-
-  <span class='co'># use with for automatic connection closing</span>
-  <span class='fu'>with</span>(<span class='no'>file</span>, {
-    <span class='co'># read and print each line sequentially</span>
-    <span class='fu'>by_line</span>(<span class='no'>file</span>, <span class='no'>print</span>)
-  })
-
-  <span class='co'># stop reading after finding the word 'stop'</span>
-  <span class='no'>connex</span> <span class='kw'>&lt;-</span> <span class='fu'>file</span>(<span class='st'>"logfile.txt"</span>, <span class='st'>"r"</span>)
-  <span class='fu'>by_line</span>(<span class='no'>connex</span>, <span class='no'>cat</span>, <span class='kw'>function</span>(<span class='no'>line</span>) <span class='fu'>grepl</span>(<span class='no'>line</span>, <span class='st'>"stop"</span>))
-  <span class='fu'>close</span>(<span class='no'>connex</span>)
-})</div></pre>
+    <pre class="examples"><div class='input'>
+<span class='kw'>if</span> (<span class='st'>"w"</span> <span class='kw'>%within%</span> <span class='st'>"hello, world!"</span>)
+  <span class='fu'>print</span>(<span class='st'>"Found it!"</span>)</div><div class='output co'>#&gt; [1] "Found it!"</div><div class='input'>
+<span class='st'>"char"</span> <span class='kw'>%within%</span> <span class='st'>"character string"</span></div><div class='output co'>#&gt; [1] TRUE</div><div class='input'>
+</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
