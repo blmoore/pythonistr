@@ -19,6 +19,42 @@ devtools::install_github("blmoore/pythonistr")
 Usage
 -----
 
+### Shortcuts
+
+In python, to instantiate a list of strings with minimal typing you could use:
+
+``` python
+print('i want a list of words'.split())
+#> ['i', 'want', 'a', 'list', 'of', 'words']
+```
+
+pythonistr adds `separate` (or `s` for short):
+
+``` r
+s("saves you typing and matching quotes")
+#> [1] "saves"    "you"      "typing"   "and"      "matching" "quotes"
+```
+
+------------------------------------------------------------------------
+
+String and sub-string matching intent is clear in Python:
+
+``` python
+if 'char' in 'character string':
+   print('Found!')
+#> Found!
+```
+
+pythonistr adds `%within%` as an alias for `grepl(pattern, string)`:
+
+``` r
+if ('char' %within% 'character string')
+  print('Found!')
+#> [1] "Found!"
+```
+
+------------------------------------------------------------------------
+
 ### Python functions
 
 Python has a great context management system that closes file connections when they fall out of scope:
@@ -68,21 +104,7 @@ with(log,
 )
 ```
 
-### Shortcuts
-
-In python, to instantiate a list of strings with minimal typing you could use:
-
-``` python
-l = 'i want a list of words'.split()
-```
-
-pythonistr adds `separate` (or `s` for short):
-
-``` r
-l <- s("saves you typing and matching quotes")
-l
-#> [1] "saves"    "you"      "typing"   "and"      "matching" "quotes"
-```
+Anything executed by `by_line` is currently only useful for its side-effects.
 
 ### Aliases
 
